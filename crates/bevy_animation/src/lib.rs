@@ -142,6 +142,12 @@ impl AnimationTransition {
         self.clip_elapsed = elapsed;
         self
     }
+
+    /// Handle of next animation clip
+    pub fn next_animation_clip(&self) -> Handle<AnimationClip> {
+        // TODO: Clone Weak?
+        self.next_animation_clip.clone()
+    }
 }
 
 /// Animation controls
@@ -247,6 +253,12 @@ impl AnimationPlayer {
     pub fn set_elapsed(&mut self, elapsed: Duration) -> &mut Self {
         self.elapsed = elapsed;
         self
+    }
+
+    /// Animation Clip
+    pub fn animation_clip(&self) -> Handle<AnimationClip> {
+        //TODO Clone Weak?
+        self.animation_clip.clone()
     }
 
     /// Is the animation in transition
